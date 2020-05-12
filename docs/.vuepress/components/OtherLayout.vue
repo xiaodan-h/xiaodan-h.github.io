@@ -1,21 +1,21 @@
 <template>
-    <div>
-        <el-row>
-            <el-col span="8" v-for="item in cats" :key="item">
-                <el-card :body-style="{ padding: '10px' }">
-                    <img :src="item.src" class="image">
-                    <div style="padding: 14px;">
-                        <span>{{item.name}}</span>
-                        <div class="bottom clearfix">
-                            <el-tooltip class="item" effect="dark" :content="item.description" placement="bottom">
-                                <el-button type="text" class="button">详情</el-button>
-                            </el-tooltip>
-                        </div>
-                    </div>
-                </el-card>
-            </el-col>
-        </el-row>
-    </div>
+  <div>
+    <el-row>
+      <el-col span="8" v-for="item in cats" :key="item">
+        <el-card :body-style="{ padding: '10px' }">
+          <img :src="item.src" class="image">
+          <div style="padding: 14px;">
+            <span>{{item.name}}</span>
+            <div class="bottom clearfix">
+              <el-tooltip class="item" effect="dark" :content="item.description" placement="bottom">
+                <el-button type="text" class="button">详情</el-button>
+              </el-tooltip>
+            </div>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 <script>
@@ -47,7 +47,7 @@ export default {
 };
 </script>
 
-<style> 
+<style > 
   .bottom {
     margin-top: 13px;
     line-height: 12px;

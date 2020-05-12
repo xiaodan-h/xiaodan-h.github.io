@@ -3,13 +3,14 @@ module.exports = {
   description: 'Personal Website',
   head: [ // 注入到当前页面的 HTML <head> 中的标签
     ['link', { rel: 'icon', href: '/images/photo.png' }],
-    ['link', { rel: 'manifest', href: '/images/photo.png' }],
-    ['link', { rel: 'apple-touch-icon', href: '/images/photo.png' }],
+    /*['link', { rel: 'manifest', href: '/images/photo.png' }],
+    ['link', { rel: 'apple-touch-icon', href: '/images/photo.png' }],*/
     ['meta', { 'http-quiv': 'pragma', cotent: 'no-cache'}],
     ['meta', { 'http-quiv': 'pragma', cotent: 'no-cache,must-revalidate'}],
     ['meta', { 'http-quiv': 'expires', cotent: '0'}],
     ['script', {}, `
       var _hmt = _hmt || [];
+      window._hmt = _hmt;
       (function() {
       // 引入谷歌,不需要可删除这段
       var hm1 = document.createElement("script");
@@ -23,9 +24,8 @@ module.exports = {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'UA-166137413-1');
-    `]
-
+      gtag('config', 'UA-166137413-1');`
+    ]
   ],
   serviceWorker: true, // 是否开启 PWA
   base: '/', // 部署到github相关的配置
@@ -40,13 +40,5 @@ module.exports = {
     ],
     sidebar: 'auto', // 侧边栏配置
     sidebarDepth: 2
-  },
-  plugins: [
-    [
-      '@vuepress/google-analytics',
-      {
-        'ga': 'UA-166137413-1'
-      }
-    ]
-  ]
+  }
 };
