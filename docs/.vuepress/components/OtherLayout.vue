@@ -7,9 +7,15 @@
           <div style="padding: 14px;">
             <span>{{item.name}}</span>
             <div class="bottom clearfix">
-              <el-tooltip class="item" effect="dark" :content="item.description" placement="bottom">
-                <el-button type="text" class="button">详情</el-button>
-              </el-tooltip>
+              <el-popover
+              placement="top-start"
+              :title="item.name"
+              width="200"
+              trigger="hover"
+              :content="item.description"
+              @show=show(item)>
+                <el-button type="text" slot="reference" class="button">详情</el-button>
+              </el-popover>
             </div>
           </div>
         </el-card>
@@ -42,7 +48,13 @@ export default {
     };
   },
   methods: {
-    
+    show(item) {
+      console.log(item.name)
+      gtag('event', 'view-item', {
+        'event_category': 'item-detail',
+        'event_label': item.name
+      });
+    }
   }
 };
 </script>

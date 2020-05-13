@@ -13,9 +13,20 @@ export default ({
     debug: true, // Whether or not display console logs debugs (optional)
     loadScript: true // Whether or not to load the GTM Script (Helpful if you are including GTM manually, but need the dataLayer functionality in your components) (optional) 
   });
+  if (window.performance) {
+    // Gets the number of milliseconds since page load
+    // (and rounds the result since the value must be an integer).
+    var timeSincePageLoad = Math.round(performance.now());
+  
+    // Sends the timing event to Google Analytics.
+    gtag('event', 'timing_complete', {
+      'name': 'load',
+      'value': timeSincePageLoad,
+      'event_category': 'JS Dependencies'
+    });
+  }
   router.afterEach(function (to) {
     if (gtag) {
-      console.log(to.path)
       gtag('config', 'UA-166137413-1', {'page_path': to.path});
     }
   })

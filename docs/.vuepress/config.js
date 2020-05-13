@@ -35,7 +35,13 @@ module.exports = {
   themeConfig: {
     nav:[ // 导航栏配置google_analytics
       { text: '我的主页', link: '/'},
-      {text: 'Web', link: '/web/' },
+      {
+        text: '前端',
+        items: [
+          { text: 'JavaScript', link: '/web/js/' },
+          { text: 'VuePress', link: '/web/vuepress/' }
+        ]
+      },
       {text: 'GA', link: '/ga/'},
       {text: '碎言碎语', link: '/others/'}     
     ],

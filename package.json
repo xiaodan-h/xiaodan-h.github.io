@@ -15,5 +15,8 @@
     "element-ui": "^2.13.1",
     "vue-gtm": "^2.2.0",
     "vuepress": "^1.5.0"
+  },
+  "devDependencies": {
+    "@vuepress/theme-blog": "^2.2.0"
   }
 }
