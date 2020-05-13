@@ -34,8 +34,9 @@ module.exports = {
   },
   themeConfig: {
     nav:[ // 导航栏配置google_analytics
+      { text: '我的主页', link: '/'},
       {text: 'Web', link: '/web/' },
-      {text: 'GA', link: '/google_analytics/'},
+      {text: 'GA', link: '/ga/'},
       {text: '碎言碎语', link: '/others/'}     
     ],
     sidebar: 'auto', // 侧边栏配置

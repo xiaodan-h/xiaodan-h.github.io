@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row>
-      <el-col span="8" v-for="item in cats" :key="item">
+      <el-col :span="8" v-for="item in cats" :key="item.name">
         <el-card :body-style="{ padding: '10px' }">
           <img :src="item.src" class="image">
           <div style="padding: 14px;">

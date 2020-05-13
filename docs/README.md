@@ -1,5 +1,6 @@
 ---
 home: true
+title: 主页
 heroImage: /images/photo.png
 actionText: 快速上手 →
 actionLink: guide.html

@@ -15,7 +15,8 @@ export default ({
   });
   router.afterEach(function (to) {
     if (gtag) {
-      gtag('config', 'UA-166137413-1', {'page_path': to.fullPath});
+      console.log(to.path)
+      gtag('config', 'UA-166137413-1', {'page_path': to.path});
     }
   })
 }
