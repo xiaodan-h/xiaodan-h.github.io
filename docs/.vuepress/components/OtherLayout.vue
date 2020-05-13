@@ -49,11 +49,19 @@ export default {
   },
   methods: {
     show(item) {
+      /*
       console.log(item.name)
       gtag('event', 'view-item', {
         'event_category': 'item-detail',
         'event_label': item.name
       });
+      
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'item-detail',
+        eventAction: 'view-item',
+        eventLabel: item.name
+      });*/
     }
   }
 };
