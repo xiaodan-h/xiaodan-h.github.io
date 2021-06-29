@@ -1,20 +1,20 @@
-<template>
+<template>  
   <div>
     <el-row>
       <el-col :span="8" v-for="item in cats" :key="item.name">
         <el-card :body-style="{ padding: '10px' }">
           <img :src="item.src" class="image">
           <div style="padding: 14px;">
-            <span>{{item.name}}</span>
+            <span>{{item.id}}</span>
             <div class="bottom clearfix">
               <el-popover
               placement="top-start"
-              :title="item.name"
+              :title="item.id"
               width="200"
               trigger="hover"
-              :content="item.description"
+              :content=getDescription(item.name)
               @show=show(item)>
-                <el-button type="text" slot="reference" class="button">详情</el-button>
+                <el-button type="text" slot="reference" class="button" :breed="item.name">详情</el-button>
               </el-popover>
             </div>
           </div>
@@ -27,42 +27,93 @@
 <script>
 export default {
   data() {
+
     return {
         cats: [
             {
-                'name': '挪威森林猫',
-                'src': require('../public/images/c1.jpg'),
-                'description': '挪威森林猫性格内向，独立性强，聪颖敏捷，机灵警觉，行动谨慎，喜欢冒险和活动，且能抓善捕，善爬树攀岩，有“能干的狩猎者”之美誉。',
+                'name': 'Norwegian Forest Cat',
+                'src': require('../public/images/c1.jpg')
             },
-                        {
-                'name': '暹罗猫',
-                'src': require('../public/images/c2.jpg'),
-                'description': '暹罗猫性格刚烈好动，机智灵活，好奇心特强，善解人意。暹罗猫喜欢与人为伴，需要主人的不断爱抚和关心，对主人忠心耿耿。',
+            {
+                'name': 'Siamese Cat',
+                'src': require('../public/images/c2.jpg')
             },
-                        {
-                'name': '阿比西尼亚猫',
-                'src': require('../public/images/c3.jpg'),
-                'description': '阿比西尼亚猫性格温顺，而且活泼开朗。喜欢生活在比较宽敞的环境，喜欢自由活动。这种猫喜欢独居，善爬树，体态轻盈，性情温和，很通人性。'
+            {
+                'name': 'Abyssinian Cat',
+                'src': require('../public/images/c3.jpg')
             },
-        ]
+        ],
+        products: [
+          {
+            "id": "NW001",
+            "name": "Norwegian Forest Cat",
+            "list_name": "Cats",
+            "category": "Pet/Cat",
+            "list_position": 1,
+            "price": 20000
+          },
+          {
+          "id": "XL002",
+          "name": "Siamese Cat",
+          "list_name": "Cats",
+          "category": "Pet/Cat",
+          "list_position": 2,
+          "price": 6000
+        },
+        {
+          "id": "AB003",
+          "name": "Abyssinian Cat",
+          "list_name": "Cats",
+          "category": "Pet/Cat",
+          "list_position": 3,
+          "price": 15000
+        }
+      ]
     };
   },
   methods: {
     show(item) {
+      var product = null
+      this.products.forEach((p) =>{
+         if(item.name == p.name) {
+           product = p
+         }
+      })
       /*
-      console.log(item.name)
       gtag('event', 'view-item', {
-        'event_category': 'item-detail',
-        'event_label': item.name
+        "content_type": "product",
+        "items": [
+          product
+        ]
       });
-      
       ga('send', {
         hitType: 'event',
         eventCategory: 'item-detail',
         eventAction: 'view-item',
         eventLabel: item.name
       });*/
+    },
+    getDescription(name) {
+       var description = null
+       this.products.forEach((item) =>{
+         if(item.name == name) {
+           description  = item.name + ', price is ' + item.price
+         }
+       })
+       return description
     }
+  },
+  mounted() {
+    /*
+    gtag('config', 'UA-166137413-1', {
+      'custom_map': {
+        'dimension1': 'breed',
+        'metric1': 'hover_time'
+      }
+    });
+    gtag('event', 'view_item_list', {
+      "items": this.products
+    });*/
   }
 };
 </script>

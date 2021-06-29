@@ -24,10 +24,11 @@ module.exports = {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'UA-166137413-1');
-      `
-    ]
-    ['script', {}, `
+      gtag('config', 'UA-166137413-1',{
+        'user_id': 'USER_ID_003'
+      });`
+    ]*/
+    /*['script', {}, `
     (function (i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r
       i[r] = i[r] || function () {
@@ -40,8 +41,7 @@ module.exports = {
       a.src = g
       m.parentNode.insertBefore(a, m)
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga')
-      ga('create', 'UA-166137413-1', 'auto');
-      ga('send', 'pageview');`
+      ga('create', 'UA-166137413-1', 'auto');`
     ]*/
   ],
   serviceWorker: true, // 是否开启 PWA
@@ -51,16 +51,17 @@ module.exports = {
   },
   themeConfig: {
     nav:[ // 导航栏配置google_analytics
-      { text: '我的主页', link: '/'},
       {
         text: '前端',
         items: [
           { text: 'JavaScript', link: '/web/js/' },
-          { text: 'VuePress', link: '/web/vuepress/' }
+          { text: 'VuePress', link: '/web/vuepress/' },
+          { text: 'test', link: 'http://192.168.36.1:9527/'}
         ]
       },
-      {text: 'GA', link: '/ga/'},
-      {text: '碎言碎语', link: '/others/'}     
+      { text: 'GA', link: '/ga/' },
+      { text: '碎言碎语', link: '/others/' },
+      { text: '测试', link: 'https://www.eufylife.com/de/products/602/haushaltsgerate?utm_source=test&utm_medium=test&utm_campaign=test&utm_content=sparkx_index_ig_dog-image' }    
     ],
     sidebar: 'auto', // 侧边栏配置
     sidebarDepth: 2
